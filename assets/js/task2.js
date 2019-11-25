@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function createArray() {
    const result = [];
@@ -33,7 +33,7 @@ function showEvenElementsOfArray(arr) {
 function sumOfElementsOfArray(arr) {
     let result = 0;
     for(let i of arr){
-        result+=i;
+        result += i;
     }
     return result;
 }
@@ -45,7 +45,7 @@ function maxElementOfArray(arr) {
     for(let i of arr){
         if(result < i){
             result = i;
-        };
+        }
     }
     return result;
 }
@@ -53,20 +53,26 @@ function maxElementOfArray(arr) {
 // ----------------------TASK 5----------------------------------
 
 function addElementToArray(arr, index, value) {
-    if(index > arr.length || index < 0){return alert("Invalid index!")};
-    for(let i = arr.length - 1; i > index; i--){
-         arr[i + 1] = arr[i];
-    };
-    arr[index] = value;
+
+    if(Array.isArray(arr)){
+        arr.splice(index, 0, value);
+        return arr;
+    }
+
 }
 
 // ----------------------TASK 6----------------------------------
 
 function deleteElementFromArray(arr, index) {
-    if(index > arr.length || index < 0){return alert("Invalid index!")};
+  /*  if(index > arr.length || index < 0){return alert("Invalid index!")};
     delete arr[index];
     for(let i = index; i < arr.length; i++){
         arr[i] = arr[i+1];
-    };
+    };*/
+
+    if(Array.isArray(arr)){
+        arr.splice(index, 1);
+        return arr;
+    }
 }
 
